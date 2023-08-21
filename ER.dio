@@ -1,6 +1,6 @@
 <mxfile host="65bd71144e">
     <diagram id="EaD16YeqwIQVgZx2yBFS" name="ページ1">
-        <mxGraphModel dx="520" dy="424" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+        <mxGraphModel dx="1386" dy="499" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
             <root>
                 <mxCell id="0"/>
                 <mxCell id="1" parent="0"/>
@@ -34,7 +34,7 @@
                 <mxCell id="30" value="belongs_to:user&lt;br&gt;has_one:purchase_&lt;span style=&quot;font-size: 14px;&quot;&gt;record&lt;/span&gt;" style="whiteSpace=wrap;html=1;align=center;" parent="10" vertex="1">
                     <mxGeometry y="26" width="160" height="40" as="geometry"/>
                 </mxCell>
-                <mxCell id="11" value="title&#10;text&#10;category&#10;condition&#10;prefecture_id&#10;shipping _days&#10;shipping_charges&#10;price&#10;user_id" style="text;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;" parent="10" vertex="1">
+                <mxCell id="11" value="title&#10;text&#10;category_id&#10;condition_id&#10;prefecture_id&#10;shipping _day_id&#10;shipping_charge_id&#10;price&#10;user_id" style="text;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;" parent="10" vertex="1">
                     <mxGeometry y="66" width="160" height="156" as="geometry"/>
                 </mxCell>
                 <mxCell id="37" style="edgeStyle=none;html=1;exitX=0;exitY=0;exitDx=0;exitDy=0;entryX=0.992;entryY=0.941;entryDx=0;entryDy=0;entryPerimeter=0;startArrow=ERoneToMany;startFill=0;endArrow=ERone;endFill=0;" parent="1" source="14" target="3" edge="1">
