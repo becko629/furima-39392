@@ -6,12 +6,12 @@
 | ------------------ | ------ | ----------- |
 | nickname           | string | null: false |
 | email              | string | null: false, unique: true |
-| password           | string | null: false |
+| encrypted_password | string | null: false |
 | first_name         | string | null: false |
 | first_name_kana    | string | null: false |
 | last_name          | string | null: false |
 | last_name_kana     | string | null: false |
-| birthday           | string | null: false |
+| birthday           | date   | null: false |
 
 ### Association
 
@@ -23,15 +23,14 @@
 | Column          | Type   | Options                            |
 | ----------------| ------ | -----------------------------------|
 | title           | string | null: false                        |
-| description     | string | null: false                        |
-| image           | text   | null: false                        |
+| description     | text   | null: false                        |
 | category        | string | null: false                        |
 | condition       | string | null: false                        |
-| shipping_area   | string | null: false                        |
+| prefecture_id   | integer| null: false                        |
 | shipping_days   | string | null: false                        |
 | shipping_charges| string | null: false                        |
-| price           | string | null: false                        |
-| user            | references | null: false, foreign_key: true |
+| price           | integer  null: false                        |
+| user_id         | integer| null: false, foreign_key: true |
 
 ### Association
 
@@ -42,26 +41,27 @@
 
 | Column      | Type   | Options                            |
 | ------------| ------ | -----------------------------------|
-| address     | references | null: false, foreign_key: true |
-| item        | references | null: false, foreign_key: true |
+| item_id     | integer | null: false, foreign_key: true |
+| user_id     | integer | null: false, foreign_key: true |
 
 ### Association
 
--belongs_to :address
+-has_one :address
 -belongs_to :item
 -belongs_to :user
 
-## address テーブル
+## addresses テーブル
 
-| Column           | Type   | Options     |
-| -----------------| ------ | ----------- |
-| post_code        | string | null: false |
-| prefectures      | string | null: false |
-| city             | string | null: false |
-| street_address   | string | null: false |
-| building_name    | string | null: false |
-| phone_number     | string | null: false |
+| Column             | Type   | Options     |
+| -----------------  | ------ | ----------- |
+| post_code          | string | null: false |
+| prefecture_id      | integer| null: false |
+| city               | string | null: false |
+| street_address     | string | null: false |
+| building_name      | string |             |
+| phone_number       | string | null: false |
+| purchase_record_id |integer | null: false, foreign_key: true |
 
 ### Association
 
--has_many :purchase_records
+-belongs_to :purchase_record
