@@ -30,7 +30,7 @@
 | shipping_day_id    | integer| null: false                        |
 | shipping_charge_id | integer| null: false                        |
 | price              | integer| null: false                        |
-| user               | integer| null: false, foreign_key: true |
+| user               | references| null: false, foreign_key: true |
 
 ### Association
 
@@ -39,10 +39,10 @@
 
 ## purchase_records テーブル
 
-| Column      | Type   | Options                            |
-| ------------| ------ | -----------------------------------|
-| item        | integer | null: false, foreign_key: true |
-| user        | integer | null: false, foreign_key: true |
+| Column      | Type       | Options                            |
+| ------------| ------     | -----------------------------------|
+| item        | references | null: false, foreign_key: true |
+| user        | references | null: false, foreign_key: true |
 
 ### Association
 
@@ -52,15 +52,15 @@
 
 ## addresses テーブル
 
-| Column             | Type   | Options     |
-| -----------------  | ------ | ----------- |
-| post_code          | string | null: false |
-| prefecture_id      | integer| null: false |
-| city               | string | null: false |
-| street_address     | string | null: false |
-| building_name      | string |             |
-| phone_number       | string | null: false |
-| purchase_record    |integer | null: false, foreign_key: true |
+| Column             | Type      | Options     |
+| -----------------  | ------    | ----------- |
+| post_code          | string    | null: false |
+| prefecture_id      | integer   | null: false |
+| city               | string    | null: false |
+| street_address     | string    | null: false |
+| building_name      | string    |             |
+| phone_number       | string    | null: false |
+| purchase_record    |references | null: false, foreign_key: true |
 
 ### Association
 
