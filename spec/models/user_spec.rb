@@ -95,6 +95,30 @@ end
       @user.valid?
       expect(@user.errors.full_messages).to include include("Birthday can't be blank")
     end
+    it 'passwordは6文字未満だと登録できない' do
+    @user.password = 'aa111'
+    @user.password_confirmation = 'aa111'
+    @user.valid?
+    expect(@user.errors.full_messages).to include("Password is too short (minimum is 6 characters)")
+    end
+    it 'passwordは全角では登録できない' do
+    @user.password = 'あああああああ'
+    @user.password_confirmation = 'あああああああ'
+    @user.valid?
+    expect(@user.errors.full_messages).to include("Password is invalid")
+    end
+    it 'passwordが数字だけだと登録できない' do
+      @user.password ='11111111'
+      @user.password_confirmation = '11111111'
+      @user.valid?
+      expect(@user.errors.full_messages).to include("Password is invalid")
+    end
+    it 'passwordが英字だけだと登録できない' do
+      @user.password = 'aaaaaaaa'
+      @user.password_confirmation = 'aaaaaaaa'
+      @user.valid?
+      expect(@user.errors.full_messages).to include("Password is invalid")
+    end
   end
  end
 end
