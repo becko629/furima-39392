@@ -4,4 +4,5 @@ Rails.application.routes.draw do
 
   resources :users,only: [:show]
   resources :items
+  resources :purchase_records,only: [:index, :create]
 end
