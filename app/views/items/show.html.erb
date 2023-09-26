@@ -12,7 +12,7 @@
       <%# 商品が売れていればsold outを表示しましょう %>
           
           
-          <% if @items.present? %>
+          <% if @item.purchase_record.present? %>
           <div class='sold-out'>
             <span>Sold Out!!</span>
           </div>
