@@ -4,7 +4,9 @@ RSpec.describe PurchaseRecordsAddress, type: :model do
   describe '商品購入機能' do
     before do
       user = FactoryBot.create(:user)
-      @purchase_record_address = FactoryBot.build(:purchase_records_address, user_id: user.id)
+      item = FactoryBot.create(:item)
+      @purchase_record_address = FactoryBot.build(:purchase_records_address, user_id: user.id, item_id: item.id)
+      sleep(0.1)
     end
 
     context '内容に問題ない場合' do
@@ -31,8 +33,8 @@ RSpec.describe PurchaseRecordsAddress, type: :model do
         expect(@purchase_record_address.errors.full_messages).to include include('Post code is invalid')
       end
 
-      it 'prefecture_idが空だと購入できない' do
-        @purchase_record_address.prefecture_id = ''
+      it 'prefecture_idが1だと購入できない' do
+        @purchase_record_address.prefecture_id = '1'
         @purchase_record_address.valid?
         expect(@purchase_record_address.errors.full_messages).to include include("Prefecture can't be blank")
       end
@@ -61,6 +63,12 @@ RSpec.describe PurchaseRecordsAddress, type: :model do
         expect(@purchase_record_address.errors.full_messages).to include include('Phone number is invalid')
       end
 
+      it 'phone_numberが12桁以上だと登録できない' do
+        @purchase_record_address.phone_number = '111111111111111111'
+        @purchase_record_address.valid?
+        expect(@purchase_record_address.errors.full_messages).to include include("Phone number is invalid")
+      end
+
       it 'phone_numberに-が入ると購入できない' do
         @purchase_record_address.phone_number = '111-1111-1111'
         @purchase_record_address.valid?
@@ -71,6 +79,18 @@ RSpec.describe PurchaseRecordsAddress, type: :model do
         @purchase_record_address.token = ''
         @purchase_record_address.valid?
         expect(@purchase_record_address.errors.full_messages).to include include("Token can't be blank")
+      end
+
+      it 'user_idが空では登録できない' do
+        @purchase_record_address.user_id = ''
+        @purchase_record_address.valid?
+        expect(@purchase_record_address.errors.full_messages).to include include("User can't be blank")
+      end
+
+      it 'item_idが空では登録できない' do
+        @purchase_record_address.item_id = ''
+        @purchase_record_address.valid?
+        expect(@purchase_record_address.errors.full_messages).to include include("Item can't be blank")
       end
     end
   end

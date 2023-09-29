@@ -9,7 +9,6 @@
     <div class="item-img-content">
       <%= image_tag @item.image, class:"item-box-img" %>
 
-      <%# 商品が売れていればsold outを表示しましょう %>
           
           
           <% if @item.purchase_record.present? %>
@@ -18,7 +17,6 @@
           </div>
           <% end %>
        
-          <%# //商品が売れていればsold outを表示しましょう %>
 
     </div>
     <div class="item-price-box">
