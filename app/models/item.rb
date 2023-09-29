@@ -9,7 +9,7 @@ class Item < ApplicationRecord
   belongs_to :shipping_charge
   belongs_to :shipping_day
   has_one_attached :image
-  
+
   validates :title, presence: true
   validates :description, presence: true
   validates :category_id, numericality: { other_than: 1, message: "can't be blank" }
